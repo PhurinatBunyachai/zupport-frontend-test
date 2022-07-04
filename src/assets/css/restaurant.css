@@ -77,3 +77,27 @@ html,body{
     grid-template-columns: auto auto auto auto;
     width: 90%;
 }
+
+@media screen and (max-width: 1400px) {
+    .restaurant {
+        grid-template-columns: auto auto auto;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .restaurant {
+        grid-template-columns: auto auto auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .restaurant {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .restaurant {
+        grid-template-columns: auto;
+    }
+}

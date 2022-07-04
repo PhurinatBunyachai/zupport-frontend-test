@@ -10,11 +10,12 @@
             type="text" 
             :value="keyword" 
             :placeholder="keyword ? keyword : 'กินอะไรดี' " 
-            @keyup="(e) => onSearch({value:e.target.value})"
+            @keyup="(e) => onUpdateValue({value:e.target.value})"
+            @keyup.enter="() => onSearch()"
             />
         </div>
          <div class="restaurant">
-          <Restaurant :restaurants="restaurants" />
+          <Restaurant :restaurants="restaurants" :isLoading="isLoading" />
         </div>
       </div>
     
@@ -24,6 +25,7 @@
 <script>
 import Restaurant from './components/restaurant/List.vue'
 import { ref,onMounted } from 'vue'
+import axios from 'axios'
 export default {
   components: {
     Restaurant
@@ -32,16 +34,48 @@ export default {
   setup() {
     let restaurants = ref([{}])
     let keyword = ref('bang sue')
-    onMounted(() => {
-      restaurants.value = [{name: 'test'},{name: 'eiei'},{name: 'eiei22'}]
+    let isLoading = ref(false)
+    let config = {
+        headers: {'Access-Control-Allow-Origin': '*'}
+    };
+    onMounted(async () => {
+      isLoading.value = true
+      await axios.post(
+        'http://127.0.0.1:8000/api/restaurants/search', 
+        {
+          keyword: keyword.value,
+        },
+        config
+        ).then((response) => {
+        restaurants.value = response.data.results
+      }).catch((error) => {
+        console.log('Looks like there was a problem: \n', error);
+      });
+      isLoading.value = false
     })
 
-    function onSearch({value}){
+    function onUpdateValue({value}){
       keyword.value = value
     }
 
+    const onSearch=async()=>{
+       isLoading.value = true
+       await axios.post(
+        'http://127.0.0.1:8000/api/restaurants/search', 
+        {
+          keyword: keyword.value,
+        },
+        config
+        ).then((response) => {
+        restaurants.value = response.data.results
+      }).catch((error) => {
+        console.log('Looks like there was a problem: \n', error);
+      });
+      isLoading.value = false
+    }
 
-    return{restaurants,keyword,onSearch}
+
+    return{restaurants,keyword,onSearch,onUpdateValue,isLoading}
   }
 
 }

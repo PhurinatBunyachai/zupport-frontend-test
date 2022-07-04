@@ -4,15 +4,61 @@
     height: 200px;
     border-radius: 10px;
     box-shadow: 5px 5px 5px #e1e1e1;
+    background-color: white;
+    padding: 10px;
+    font-family: 'kanit';
 }
 
-.restaurant-image{
+.restaurant-name{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.restaurant-address{
     display: block;
-    
+    font-size: 14px;
+}
+.restaurant-footer{
+    display: block;
 }
 
-.restaurant-image > img{
-    width: 200px;
-    max-height: 200px;
-    object-fit: fill;
+.open{
+    font-weight: 600;
+    color: rgb(57, 207, 57);
+}
+
+.close{
+    font-weight: 600;
+    color: rgb(204, 28, 28);
+}
+
+.restaurant-head{
+    display: flex;
+    justify-content: space-between;
+}
+
+.restaurant-footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px 0 10px;
+}
+
+.restaurant-group-rating{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background-color: rgb(67, 133, 187);
+    width: 50px;
+    color: white;
+    border-radius: 30px;
+    font-size: 14px;
+}
+
+.restaurant-group-rating >.icon-rating{
+    font-size: 10px;
 }
