@@ -1,0 +1,30 @@
+.not-found{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    width: 90%;
+    height:500px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #e1e1e1;
+    background-color: rgb(230, 230, 230);
+    padding: 10px;
+}
+
+.containner{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.containner > .icon{
+    font-size: 64px;
+    color: #464646;
+}
+
+.containner > .label{
+    font-size: 32px;
+    font-weight: 300;
+    color: #464646;
+}

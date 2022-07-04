@@ -4,7 +4,7 @@
       <span class='restaurant-name'>{{restaurant.name}}</span>
       <img :src=restaurant.icon alt="icon" width="16" height="16" />
     </div>
-    <div class='restaurant-body'></div>
+    <div class='restaurant-body'>
     <span class='restaurant-address'>{{restaurant.formatted_address}}</span>
     <div class='restaurant-footer'>
         <div class='restaurant-group-rating'>
@@ -14,9 +14,6 @@
         <span :class="`${restaurant.business_status === 'OPERATIONAL' ? 'open' : 'close'} `">{{restaurant.business_status === 'OPERATIONAL' ? 'เปิด' : 'ปิด'}}</span>
     </div>
   </div>
-
-  <div v-if="isLoading">
-    isLoading....
   </div>
 </template>
 
