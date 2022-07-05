@@ -49,7 +49,7 @@ export default {
     onMounted(async () => {
       isLoading.value = true
       await axios.post(
-        'http://127.0.0.1:8000/api/restaurants/search', 
+        `${process.env.VUE_APP_HOST}/api/restaurants/search`, 
         {
           keyword: keyword.value,
         },
@@ -69,7 +69,7 @@ export default {
     const onSearch=async()=>{
        isLoading.value = true
        await axios.post(
-        'http://127.0.0.1:8000/api/restaurants/search', 
+        `${process.env.VUE_APP_HOST}/api/restaurants/search`, 
         {
           keyword: keyword.value,
         },
